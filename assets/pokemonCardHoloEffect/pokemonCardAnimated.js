@@ -6,60 +6,66 @@
     - color-dodge mix blend mode
   
 */
-var x;
-var $cards = $(".card");
-var $style = $(".hover");
+const $cards = $(".card");
+const $style = $(".hover");
+let animationId;
 
-$cards
-  .on("mousemove touchmove", function(e) { 
-    // normalise touch/mouse
-    var pos = [e.offsetX,e.offsetY];
-    e.preventDefault();
-    if ( e.type === "touchmove" ) {
-      pos = [ e.touches[0].clientX, e.touches[0].clientY ];
-    }
-    var $card = $(this);
-    // math for mouse position
-    var l = pos[0];
-    var t = pos[1];
-    var h = $card.height();
-    var w = $card.width();
-    var px = Math.abs(Math.floor(100 / w * l)-100);
-    var py = Math.abs(Math.floor(100 / h * t)-100);
-    var pa = (50-px)+(50-py);
-    // math for gradient / background positions
-    var lp = (50+(px - 50)/1.5);
-    var tp = (50+(py - 50)/1.5);
-    var px_spark = (50+(px - 50)/7);
-    var py_spark = (50+(py - 50)/7);
-    var p_opc = 20+(Math.abs(pa)*1.5);
-    var ty = ((tp - 50)/2) * -1;
-    var tx = ((lp - 50)/1.5) * .5;
-    // css to apply for active card
-    var grad_pos = `background-position: ${lp}% ${tp}%;`
-    var sprk_pos = `background-position: ${px_spark}% ${py_spark}%;`
-    var opc = `opacity: ${p_opc/100};`
-    var tf = `transform: rotateX(${ty}deg) rotateY(${tx}deg)`
-    // need to use a <style> tag for psuedo elements
-    var style = `
-      .card:hover:before { ${grad_pos} }  /* gradient */
-      .card:hover:after { ${sprk_pos} ${opc} }   /* sparkles */ 
-    `
-    // set / apply css class and style
-    $cards.removeClass("active");
-    $card.removeClass("animated");
-    $card.attr( "style", tf );
-    $style.html(style);
-    if ( e.type === "touchmove" ) {
-      return false; 
-    }
-    clearTimeout(x);
-  }).on("mouseout touchend touchcancel", function() {
-    // remove css, apply custom animation on end
-    var $card = $(this);
-    $style.html("");
-    $card.removeAttr("style");
-    x = setTimeout(function() {
-      $card.addClass("animated");
-    },2500);
+$cards.on("pointermove", function(e) {
+  e.preventDefault();
+  
+  // Bestimme die Position relativ zur Karte
+  const pos = [e.offsetX || e.clientX - $(this).offset().left, e.offsetY || e.clientY - $(this).offset().top];
+  const $card = $(this);
+  
+  // Maße der Karte
+  const width = $card.width();
+  const height = $card.height();
+  
+  // Berechnungen für die Maus- bzw. Touch-Positionen
+  const l = pos[0];
+  const t = pos[1];
+  const px = Math.abs(Math.floor(100 / width * l) - 100);
+  const py = Math.abs(Math.floor(100 / height * t) - 100);
+  const pa = (50 - px) + (50 - py);
+  
+  const lp = (50 + (px - 50) / 1.5);
+  const tp = (50 + (py - 50) / 1.5);
+  const px_spark = (50 + (px - 50) / 7);
+  const py_spark = (50 + (py - 50) / 7);
+  const p_opc = 20 + (Math.abs(pa) * 1.5);
+  const ty = ((tp - 50) / 2) * -1;
+  const tx = ((lp - 50) / 1.5) * 0.5;
+
+  // CSS Variablen für die Karte setzen
+  $card.css({
+    '--grad-pos-x': `${lp}%`,
+    '--grad-pos-y': `${tp}%`,
+    '--spark-pos-x': `${px_spark}%`,
+    '--spark-pos-y': `${py_spark}%`,
+    '--spark-opacity': p_opc / 100,
+    'transform': `rotateX(${ty}deg) rotateY(${tx}deg)`
   });
+
+  // Verwende requestAnimationFrame für flüssige Animationen
+  cancelAnimationFrame(animationId);
+  animationId = requestAnimationFrame(() => {
+    const newStyle = `
+      .card:hover:before {
+        background-position: var(--grad-pos-x) var(--grad-pos-y);
+      }
+      .card:hover:after {
+        background-position: var(--spark-pos-x) var(--spark-pos-y);
+        opacity: var(--spark-opacity);
+      }
+    `;
+    $style.html(newStyle);
+  });
+}).on("pointerout pointercancel", function() {
+  // Entferne die Stile und setze die Animation zurück
+  const $card = $(this);
+  $style.html("");
+  $card.removeAttr("style");
+  setTimeout(() => {
+    $card.addClass("animated");
+  }, 2500);
+});
