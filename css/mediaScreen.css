@@ -1,0 +1,15 @@
+@media screen and (min-width: 1920px) and (max-width: 3000px) {
+    .mobilMenu {
+        display: none;
+    }
+
+    body {
+        background-color: #c6c6c6;
+    }
+
+    .content {
+        width: 1920px;
+        height: auto;
+        margin: 0 auto;
+    }
+}
