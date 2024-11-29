@@ -4,16 +4,22 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>PokemonCard</title>
-        <link rel="shortcut icon" href="./assets/favicon/pokeball_361998.png" type="image/x-icon">
+        <link
+            rel="shortcut icon"
+            href="./assets/favicon/pokeball_361998.png"
+            type="image/x-icon"
+        />
         <link rel="stylesheet" href="./style.css" />
         <link rel="stylesheet" href="./css/standard.css" />
         <link rel="stylesheet" href="./css/fonts.css" />
         <link rel="stylesheet" href="./css/assets.css" />
         <link rel="stylesheet" href="./css/mediaScreen.css" />
     </head>
-    <body>
+    <body onload="init()">
         <include-html src="./templates/header.html"></include-html>
-        <main></main>
+        <main>
+            <div id="pokedex"></div>
+        </main>
 
         <include-html src="./templates/footer.html"></include-html>
         <script src="./script.js"></script>
