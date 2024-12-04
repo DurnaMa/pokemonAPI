@@ -3,10 +3,6 @@
 }
 
 .pokemon-card {
-    display: flex;
-    justify-content: center;
-    width: 250px;
-    border: solid 5px;
 
 }
 
