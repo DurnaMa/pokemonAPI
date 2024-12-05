@@ -1,8 +1,4 @@
 @media screen and (min-width: 1920px) and (max-width: 3000px) {
-    body {
-        background-color: #c6c6c6;
-    }
-
     .content {
         width: 1920px;
         height: auto;
