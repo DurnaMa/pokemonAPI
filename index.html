@@ -9,14 +9,17 @@
         <link rel="stylesheet" href="./css/fonts.css" />
         <link rel="stylesheet" href="./css/assets.css" />
         <link rel="stylesheet" href="./css/mediaScreen.css" />
-
+        <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        
         <script src="./script.js"></script>
         <script src="./js/include-html.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     </head>
     <body onload="init()">
         <include-html src="./templates/header.html"></include-html>
         <main>
-            <div id="pokedex"></div>
+            <div class="d-flex align-items-center flex-column " id="pokedex"></div>
+            <div id="evolutionChain"></div>
         </main>
 
         <include-html src="./templates/footer.html"></include-html>
