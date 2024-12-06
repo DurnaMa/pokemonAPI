@@ -11,17 +11,17 @@
         <link rel="stylesheet" href="./css/mediaScreen.css" />
         <link rel="stylesheet" href="../src/input.css">
         <link rel="stylesheet" href="../src/output.css">
+        <link rel="stylesheet" href="./css/mein.css">
         
         <script src="./script.js"></script>
         <script src="./js/include-html.js"></script>
-        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="./js/pokemonData.js"></script>
     </head>
-    <body onload="init()">
+    <body class="bg-lime-500 " onload="init()">
         <include-html src="./templates/header.html"></include-html>
-        <main class="bg-white">
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4" id="pokedex"></div>
-            <div id="evolutionChain"></div>
+        <main>
+            <div class="content-none grid grid-cols-2 md:grid-cols-3 gap-4" id="pokedex"></div>
+            <div class=" d-none z-30 w-full h-full bg-transparent bg-green-950 fixed top-0 left-0 content-center items-center justify-items-center" id="pokedexBigCard"></div>
         </main>
 
         <include-html src="./templates/footer.html"></include-html>

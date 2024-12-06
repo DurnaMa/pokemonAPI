@@ -1,9 +1,10 @@
 let fetchPokemons = [];
 let evolutionChains = [];
 
+console.log("Pokemon: ", fetchPokemons);
 async function fetchPokemon() {
     try {
-        for (let pokemonIndex = 1; pokemonIndex <= 5; pokemonIndex++) {
+        for (let pokemonIndex = 1; pokemonIndex <= 4; pokemonIndex++) {
             let url = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`;
             let response = await fetch(url);
             if (!response.ok) {
@@ -25,7 +26,7 @@ async function fetchPokemon() {
 
 async function evolutionChain() {
     try {
-        for (let evolutionIndex = 1; evolutionIndex <=10; evolutionIndex++) {
+        for (let evolutionIndex = 1; evolutionIndex <= 5; evolutionIndex++) {
             let url = `https://pokeapi.co/api/v2/evolution-chain/${evolutionIndex}`;
             let response = await fetch(url);
             if (!response.ok) {

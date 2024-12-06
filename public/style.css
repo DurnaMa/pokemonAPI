@@ -1,3 +1,7 @@
 .bg_grass{
     background-color: green !important; 
 }
+
+.d-none {
+    display: none;
+}
