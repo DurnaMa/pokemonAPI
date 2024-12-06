@@ -1,5 +1,18 @@
 {
   "dependencies": {
-    "bootstrap": "^5.3.3"
-  }
+    "bootstrap": "^5.3.3",
+    "rippleui": "^1.12.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.16"
+  },
+  "name": "pokemonapi",
+  "version": "1.0.0",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "dev": "npx tailwindcss-cli@latest build ./src/input.css -o ./src/output.css "
+  },
+  "author": "Mahir Durna",
+  "license": "ISC",
+  "description": ""
 }
