@@ -1,27 +1,22 @@
 <!DOCTYPE html>
-<html lang="de">
+<html class="dark" lang="de">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <link rel="shortcut icon" href="./assets/favicon/pokeball.png" type="image/x-icon">
-        <link rel="stylesheet" href="./style.css" />
-        <link rel="stylesheet" href="./css/fonts.css" />
-        <link rel="stylesheet" href="./css/assets.css" />
-        <link rel="stylesheet" href="./css/mediaScreen.css" />
-        <link rel="stylesheet" href="../src/input.css">
-        <link rel="stylesheet" href="../src/output.css">
         <link rel="stylesheet" href="./css/mein.css">
         
         <script src="./script.js"></script>
         <script src="./js/include-html.js"></script>
         <script src="./js/pokemonData.js"></script>
+        <script src=""></script>
     </head>
     <body class="bg-lime-500 " onload="init()">
         <include-html src="./templates/header.html"></include-html>
         <main>
             <div class="content-none grid grid-cols-2 md:grid-cols-3 gap-4" id="pokedex"></div>
-            <div class=" d-none z-30 w-full h-full bg-transparent bg-green-950 fixed top-0 left-0 content-center items-center justify-items-center" id="pokedexBigCard"></div>
+            <div class="d-none w-screen h-screen content-center fixed top-0 left-0 items-center justify-items-center bg-gray-100 " id="pokedexBigCard"></div>
         </main>
 
         <include-html src="./templates/footer.html"></include-html>
