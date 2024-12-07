@@ -4,8 +4,8 @@ module.exports = {
     content: [
         "./src/**/*.{html,js}",
         "./templates/**/*.html",
-        "./public/index.html",
-        "./public/script.js",
+        "./index.html",
+        "./script.js",
     ],
     theme: {
         screens: {
