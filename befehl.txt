@@ -1,0 +1,13 @@
+git add .
+git commit -m "Improvement to the code structure"
+git branch -M main
+git push -u origin main
+-----
+npm run dev
+######
+npx tailwindcss init
+npm init
+######
+npm install rippleui
+npm install tailwind-scrollbar
+npm install @tailwindcss/forms

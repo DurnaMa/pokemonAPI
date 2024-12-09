@@ -6,6 +6,7 @@ module.exports = {
         "./templates/**/*.html",
         "./index.html",
         "./script.js",
+        "./js/include-html.js"
     ],
     theme: {
         screens: {
@@ -14,7 +15,26 @@ module.exports = {
             lg: "976px",
             xl: "1440px",
         },
-        extend: {},
+        extend: {
+            fontFamily: {
+                lato: ["Lato", "sans-serif"],
+            },
+            lineHeight: {
+                normal: "1.6",
+            },
+            spacing: {
+                "sb-size": "13px",
+            },
+            colors: {
+                "sb-track": "#9ca3af",
+                "sb-thumb": "#1f2937",
+                footerText: "rgb(24, 19, 19)",
+            },
+        },
     },
-    plugins: [],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("tailwind-scrollbar")({ nocompatible: true }),
+        require("tailwind-scrollbar")({ nocompatible: true }),
+    ],
 };

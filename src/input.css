@@ -1,6 +1,80 @@
 @tailwind base;
 @tailwind components;
- .mahir-card {
-    @apply cursor-pointer mb-3 flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700
- }
+.mahir-card {
+    @apply cursor-pointer mb-3 flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700;
+}
 @tailwind utilities;
+
+@layer base {
+    * {
+        @apply m-0 p-0 box-border;
+    }
+
+    body {
+        @apply flex flex-col h-screen font-lato leading-normal;
+        --sb-track-color: #9ca3af;
+        --sb-thumb-color: #1f2937;
+        --sb-size: 13px;
+    }
+
+    body::-webkit-scrollbar {
+        width: var(--sb-size);
+    }
+
+    body::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 3px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 3px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        @apply font-bold my-5;
+    }
+
+    p {
+        @apply font-normal mb-4;
+    }
+
+    .italic {
+        @apply italic mb-4;
+    }
+
+    header,
+    footer {
+        @apply bg-gray-600 px-24;
+    }
+
+    footer {
+        @apply py-0 flex-shrink-0;
+    }
+
+    .footer-bottom {
+        @apply flex text-center text-footerText pb-2;
+    }
+
+    .max-width-header,
+    .max-width-footer {
+        @apply max-w-[1920px] flex justify-center items-center;
+    }
+
+    .contact,
+    .impressum,
+    .datenschutzerklaerung {
+        @apply flex justify-center items-center text-center;
+    }
+
+    main {
+        @apply flex-grow p-5;
+    }
+
+    a {
+        @apply no-underline;
+    }
+};
