@@ -798,6 +798,10 @@ p {
 
 header,
     footer {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
   padding-left: 6rem;
@@ -809,6 +813,11 @@ footer {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
+/* .max-width-header,
+    .max-width-footer {
+        @apply max-w-[1920px] flex justify-center items-center;
+    } */
 
 .contact,
     .impressum,
