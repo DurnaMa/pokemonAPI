@@ -46,7 +46,7 @@ function evolutionChainCard() {
 }
 
 function openPokemonCard(pokemonIndex) {
-    let pokemon = fetchPokemons[pokemonIndex];
+    let singlePokemon = allPokemon[pokemonIndex];
     document.getElementById("pokedexBigCard").classList.remove("d-none");
     document.getElementById("pokedexBigCard").innerHTML = /*html*/ `
             <div class="flex items-center justify-center">
@@ -56,7 +56,7 @@ function openPokemonCard(pokemonIndex) {
                 <div class="flex-auto  max-w-sm bg-gray-800 border border-cyan-950 rounded-lg">
                     <img onclick="closePokemonCard()" class="bg-white border cursor-pointer w-8 h-8 items-end justify-end flex" src="./assets/icons/close.png">
                     <div class="flex justify-center items-center border-b-8 border-black ">
-                        <img class="rounded-t-lg object-cover" src="${pokemon.image}" alt="${pokemon.name}" />
+                        <img class="rounded-t-lg object-cover" src="${singlePokemon.image}" alt="${singlePokemon.name}" />
                     </div>
                     <div class="p-5">
                         <div style="width: 60%; ">
@@ -88,14 +88,14 @@ function nextCardL(pokemonIndex) {
     if (pokemonIndex > 0) {
         pokemonIndex -= 1;
     } else {
-        pokemonIndex = fetchPokemons.length -1;
+        pokemonIndex = allPokemon.length -1;
     }
 
     openPokemonCard(pokemonIndex);
 }
 
 function nextCardR(pokemonIndex) {
-    if (pokemonIndex <  fetchPokemons.length -1) {
+    if (pokemonIndex <  allPokemon.length -1) {
         pokemonIndex += 1;
     } else {
         pokemonIndex = 0;

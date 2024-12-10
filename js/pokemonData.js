@@ -15,8 +15,6 @@ async function fetchPokemon() {
             console.log(pokemon, " pokemon url: ", pokemon["url"]);
             let fetchedPokemon = await fetch(`${pokemon["url"]}`);
             let singlePokemon = await fetchedPokemon.json();
-            //allPokemon.push(singlePokemon);
-
             allPokemon.push({
                 id: singlePokemon.id,
                 name: singlePokemon.name,
@@ -42,21 +40,21 @@ async function fetchPokemon() {
 //     });
 // }
 
-// async function evolutionChain() {
-//     try {
-//         for (let evolutionIndex = 1; evolutionIndex <= 5; evolutionIndex++) {
-//             let url = `https://pokeapi.co/api/v2/evolution-chain/${evolutionIndex}`;
-//             let response = await fetch(url);
-//             if (!response.ok) {
-//                 throw new Error(`Response status: ${response.status}`);
-//             }
-//             const json = await response.json();
-//             evolutionChains.push({
-//                 id: json.chain.id,
-//             });
-//             console.log("evolutionChain: ", json);
-//         }
-//     } catch (error) {
-//         console.error(error.message);
-//     }
-// }
+async function evolutionChain() {
+    try {
+        for (let evolutionIndex = 1; evolutionIndex <= 5; evolutionIndex++) {
+            let url = `https://pokeapi.co/api/v2/evolution-chain/${evolutionIndex}`;
+            let response = await fetch(url);
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+            const json = await response.json();
+            evolutionChains.push({
+                id: json.chain.id,
+            });
+            console.log("evolutionChain: ", json);
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
