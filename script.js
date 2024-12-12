@@ -1,7 +1,8 @@
 function init() {
     //evolutionChain();
     fetchPokemon();
-    pokemonCard();
+    pokemonCard();   
+
 }
 
 function pokemonCard() {
@@ -28,23 +29,6 @@ function pokemonCard() {
     }
 }
 
-function evolutionChainCard() {
-    let contentContainer = document.getElementById("evolutionChain");
-    for (let evolution of evolutionChains) {
-        contentContainer.innerHTML += /*html*/ `
-            <div class="" style="width: 18rem;"> 
-                <div class="">#${evolution.id}</div>
-                <img src="${evolution.image}" class="" alt="${evolution.image}">
-                <div class="">
-                    <div class="">
-                      <h2 class="">${evolution.name}</h2>
-                      <p class="">${evolution.types.join(", ")}</p>
-                    </div>
-                </div>
-            </div>`;
-    }
-}
-
 function openPokemonCard(pokemonIndex) {
     let singlePokemon = allPokemon[pokemonIndex];
     document.getElementById("pokedexBigCard").classList.remove("d-none");
@@ -59,7 +43,7 @@ function openPokemonCard(pokemonIndex) {
                         <img class="rounded-t-lg object-cover" src="${singlePokemon.image}" alt="${singlePokemon.name}" />
                     </div>
                     <div class="p-5">
-                        <div style="width: 60%; ">
+                        <div style=" width: 60%; ">
                             <canvas id="myChart" width="400" height="400"></canvas>
                         </div>
                         <!-- <a href="#">
@@ -103,3 +87,7 @@ function nextCardR(pokemonIndex) {
 
     openPokemonCard(pokemonIndex);
 }
+
+// function nextPokemon() {
+//     document.getElementById("nextPokemon")
+// }
