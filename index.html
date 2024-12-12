@@ -9,11 +9,13 @@
             href="./assets/favicon/pokeball.png"
             type="image/x-icon"
         />
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="./css/mein.css" />
 
         <script src="./script.js"></script>
         <script src="./js/include-html.js"></script>
         <script src="./js/pokemonData.js"></script>
+        <script src="./ZpokemoneList.js"></script>
     </head>
     <body class="bg-lime-500" onload="init()">
         <include-html src="./templates/header.html"></include-html>
@@ -27,11 +29,17 @@
                 id="pokedexBigCard"
             ></div>
             <div class="flex justify-center">
-                <button onclick="lodePokemon()" id="nextPokemon"
+                <button
+                    onclick="lodePokemon()"
+                    id="nextPokemon"
                     class="cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
                 >
                     Button
                 </button>
+            </div>
+
+            <div class="d-none">
+                <div class="loader" id="loder">LODING</div>
             </div>
             <!-- <div style="width: 60%; ">
                 <canvas id="myChart" width="400" height="400"></canvas>

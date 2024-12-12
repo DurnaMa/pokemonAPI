@@ -1,4 +1,5 @@
+
 @import "../src/input.css";
-@import "../src/output.css";
-@import "../style.css";    
+@import "../src/output.css"; 
 @import "./fonts.css";
+@import "./pokeball.css"
