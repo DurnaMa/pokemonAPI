@@ -30,7 +30,6 @@ async function fetchPokemon() {
         console.error(error.message);
     }
     pokemonCard();
-    
 }
 
 // function pushPokemon() {
@@ -43,8 +42,6 @@ async function fetchPokemon() {
 // }
 
 async function lodePokemon() {
-    //const allPokemon = document.getElementById("pokedex")
-    const url = `${baseUrl}?offset=${offset}&limit=${limit}`
+    const url = `${baseUrl}&limit=${limit}`
     await fetchPokemon(url);
-    offset += limit
 }

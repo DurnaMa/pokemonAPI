@@ -1,31 +1,35 @@
 function init() {
     //evolutionChain();
     fetchPokemon();
-    pokemonCard();   
-
+    pokemonCard();
 }
 
 function pokemonCard() {
     let contentContainer = document.getElementById("pokedex");
-    for (
-        let pokemonIndex = 0;
-        pokemonIndex < allPokemon.length;
-        pokemonIndex++
-    ) {
-        let singlePokemon = allPokemon[pokemonIndex];
-        contentContainer.innerHTML += /*html*/ `
-            <div onclick="openPokemonCard(${pokemonIndex})" class="mahir-card">
-                    <img class="object-cover" src="${singlePokemon.image}" alt="${singlePokemon.name}">
-                    <div class="flex flex-col justify-between p-4 leading-normal">
-                        <h2 class="text-white ">#${singlePokemon.id}</h2>
-                        <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${
-                            singlePokemon.name
-                        }</h2>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${singlePokemon.types.join(
-                            ", "
-                        )}</p>
-                    </div>
-            </div>`;
+    if (contentContainer) {
+        contentContainer.innerHTML = "";
+        for (
+            let pokemonIndex = 0;
+            pokemonIndex < allPokemon.length;
+            pokemonIndex++
+        ) {
+            let singlePokemon = allPokemon[pokemonIndex];
+            contentContainer.innerHTML += /*html*/ `
+                <div onclick="openPokemonCard(${pokemonIndex})" class="mahir-card">
+                        <img class="object-cover" src="${
+                            singlePokemon.image
+                        }" alt="${singlePokemon.name}">
+                        <div class="flex flex-col justify-between p-4 leading-normal">
+                            <h2 class="text-white ">#${singlePokemon.id}</h2>
+                            <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">${
+                                singlePokemon.name
+                            }</h2>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${singlePokemon.types.join(
+                                ", "
+                            )}</p>
+                        </div>
+                </div>`;
+        }
     }
 }
 
@@ -72,14 +76,14 @@ function nextCardL(pokemonIndex) {
     if (pokemonIndex > 0) {
         pokemonIndex -= 1;
     } else {
-        pokemonIndex = allPokemon.length -1;
+        pokemonIndex = allPokemon.length - 1;
     }
 
     openPokemonCard(pokemonIndex);
 }
 
 function nextCardR(pokemonIndex) {
-    if (pokemonIndex <  allPokemon.length -1) {
+    if (pokemonIndex < allPokemon.length - 1) {
         pokemonIndex += 1;
     } else {
         pokemonIndex = 0;
@@ -87,7 +91,3 @@ function nextCardR(pokemonIndex) {
 
     openPokemonCard(pokemonIndex);
 }
-
-// function nextPokemon() {
-//     document.getElementById("nextPokemon")
-// }
