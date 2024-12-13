@@ -35,6 +35,8 @@ async function fetchPokemon() {
                 species: singlePokemon.species.name,
                 stats: singlePokemon.stats,
                 bg: singlePokemon.types[0].type.name,
+                ability: singlePokemon.abilities[0].ability.name,
+                height: singlePokemon.height,
             });
         }
         offset = offset + 25;
@@ -49,15 +51,6 @@ async function lodePokemon() {
     const url = `${baseUrl}&limit=${limit}`;
     await fetchPokemon(url);
 }
-
-// function pushPokemon() {
-//     allPokemon.push({
-//         id: singlePokemon.id,
-//         name: singlePokemon.name,
-//         image: singlePokemon.sprites.front_default,
-//         types: singlePokemon.types.map((type) => type.type.name),
-//     });
-// }
 
 // function loaderScreen() {
 //     const loaderContainer = document.querySelector('.loader-container');

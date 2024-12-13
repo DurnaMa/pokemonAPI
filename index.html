@@ -15,35 +15,17 @@
         <script src="./script.js"></script>
         <script src="./js/include-html.js"></script>
         <script src="./js/pokemonData.js"></script>
-        <script src="./ZpokemoneList.js"></script>
     </head>
     <body class="bg-lime-500" onload="init()">
         <include-html src="./templates/header.html"></include-html>
         <main class="">
-            <div
-                class="content-none grid grid-cols-2 md:grid-cols-3 gap-4"
-                id="pokedex"
-            ></div>
-            <div
-                class="d-none w-screen h-screen content-center fixed top-0 left-0 items-center justify-items-center bg-gray-100"
-                id="pokedexBigCard"
-            ></div>
+            <div class="content-none grid grid-cols-2 md:grid-cols-3 gap-4" id="pokedex"></div>
+            <div class="d-none w-screen h-screen content-center fixed top-0 left-0 items-center justify-items-center bg-transparent bg-gray-100" id="pokedexBigCard"></div>
             <div class="flex justify-center">
-                <button
-                    onclick="lodePokemon()"
-                    id="nextPokemon"
-                    class="cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]"
-                >
-                    Button
+                <button onclick="lodePokemon()" id="nextPokemon" class="cursor-pointer transition-all bg-blue-500 text-white px-6 py-2 rounded-lg border-blue-600 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px]">
+                    Lode Pokemon
                 </button>
             </div>
-
-            <div class="d-none">
-                <div class="loader" id="loder">LODING</div>
-            </div>
-            <!-- <div style="width: 60%; ">
-                <canvas id="myChart" width="400" height="400"></canvas>
-            </div> -->
         </main>
 
         <include-html src="./templates/footer.html"></include-html>
