@@ -1,19 +1,21 @@
-function init() {
-    fetchPokemon();
+async function init() {
+    await fetchPokemon();
 }
 
-function pokemonCard() {
+function pokemonCard(pokemons) {
     let contentContainer = document.getElementById("pokedex");
     if (contentContainer) {
         contentContainer.innerHTML = "";
         for (
             let pokemonIndex = 0;
-            pokemonIndex < allPokemon.length;
+            pokemonIndex < pokemons.length;
             pokemonIndex++
         ) {
-            let singlePokemon = allPokemon[pokemonIndex];
+            let singlePokemon = pokemons[pokemonIndex];
             contentContainer.innerHTML += /*html*/ `
-                <div onclick="bigPokemonCard(${pokemonIndex})" class="mahir-card bg-${singlePokemon.bg}">
+                <div onclick="bigPokemonCard(${pokemonIndex})" class="mahir-card bg-${
+                singlePokemon.bg
+            }">
                         <img class="object-cover" src="${
                             singlePokemon.image
                         }" alt="${singlePokemon.name}">
@@ -22,7 +24,9 @@ function pokemonCard() {
                             <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${
                                 singlePokemon.name
                             }</h2>
-                            <p class="mb-3 font-normal text-gray-700">${singlePokemon.types.join(", ")}</p>
+                            <p class="mb-3 font-normal text-gray-700">${singlePokemon.types.join(
+                                ", "
+                            )}</p>
                         </div>
                 </div>`;
         }
@@ -40,16 +44,28 @@ function bigPokemonCard(pokemonIndex) {
                 <div class="flex-auto  max-w-sm bg-${singlePokemon.bg}">
                     <img onclick="closePokemonCard()" class="bg-white border cursor-pointer w-8 h-8 items-end justify-end flex" src="./assets/icons/close.png">
                     <div class="flex justify-center items-center flex-col border-b-8 border-black ">
-                        <img class="rounded-t-lg object-cover" src="${singlePokemon.image}" alt="${singlePokemon.name}"/>
-                        <h2 class="text-lg mb-3 font-normal text-gray-700">${singlePokemon.types.join(", ")}</h2>
+                        <img class="rounded-t-lg object-cover" src="${
+                            singlePokemon.image
+                        }" alt="${singlePokemon.name}"/>
+                        <h2 class="text-lg mb-3 font-normal text-gray-700">${singlePokemon.types.join(
+                            ", "
+                        )}</h2>
                     </div>
                     <div class=" flex justify-normal flex-col">
-                        <h2 class="text-2xl font-normal text-gray-700 px-3">Species: ${singlePokemon.species}</h2>
-                        <h2 class="text-2xl inline-flex items-center px-3 font-medium text-center text-gray-700">Height: ${singlePokemon.height}</h2>
-                        <!-- <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${singlePokemon.stats[0].stat.name}</h2> -->
+                        <h2 class="text-2xl font-normal text-gray-700 px-3">Species: ${
+                            singlePokemon.species
+                        }</h2>
+                        <h2 class="text-2xl inline-flex items-center px-3 font-medium text-center text-gray-700">Height: ${
+                            singlePokemon.height
+                        }</h2>
+                        <!-- <h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">${
+                            singlePokemon.stats[0].stat.name
+                        }</h2> -->
                         <h2 class="text-2xl inline-flex items-center px-3 font-medium text-center text-gray-700">
                         weight: ${singlePokemon.weight} kg</h2>
-                        <h2 class="text-2xl inline-flex items-center px-3 font-medium text-center text-gray-700">Ability: ${singlePokemon.ability}</h2>
+                        <h2 class="text-2xl inline-flex items-center px-3 font-medium text-center text-gray-700">Ability: ${
+                            singlePokemon.ability
+                        }</h2>
                     </div>
                 </div>
                 <button onclick="nextCardR(${pokemonIndex})">
@@ -57,7 +73,7 @@ function bigPokemonCard(pokemonIndex) {
                 </button>
             </div>`;
 
-            console.log(pokemonIndex)
+    console.log(pokemonIndex);
 }
 
 function closePokemonCard() {
@@ -68,7 +84,7 @@ function nextCardL(pokemonIndex) {
     if (pokemonIndex > 0) {
         pokemonIndex -= 1;
     } else {
-        pokemonIndex = allPokemon.length -1;
+        pokemonIndex = allPokemon.length - 1;
     }
 
     bigPokemonCard(pokemonIndex);
@@ -86,20 +102,20 @@ function nextCardR(pokemonIndex) {
 
 function getPokemonBg(type) {
     const colors = {
-        fire: '#FDDFDF',
-        grass: '#DEFDE0',
-        electric: '#FCF7DE',
-        water: '#DEF3FD',
-        ground: '#f4e7da',
-        rock: '#d5d5d4',
-        fairy: '#fceaff',
-        poison: '#98d7d5',
-        bug: '#f8d5a3',
-        dragon: '#97b3e6',
-        psychic: '#eaeda1',
-        flying: '#F5F5F5',
-        fighting: '#E6E0D4',
-        normal: '#F5F5F5',
+        fire: "#FDDFDF",
+        grass: "#DEFDE0",
+        electric: "#FCF7DE",
+        water: "#DEF3FD",
+        ground: "#f4e7da",
+        rock: "#d5d5d4",
+        fairy: "#fceaff",
+        poison: "#98d7d5",
+        bug: "#f8d5a3",
+        dragon: "#97b3e6",
+        psychic: "#eaeda1",
+        flying: "#F5F5F5",
+        fighting: "#E6E0D4",
+        normal: "#F5F5F5",
     };
-    return colors[type] || 'bg-default';
+    return colors[type] || "bg-default";
 }

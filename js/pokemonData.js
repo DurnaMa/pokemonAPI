@@ -1,9 +1,8 @@
-//const { sign } = require("chart.js/helpers");
-
 const baseUrl = `https://pokeapi.co/api/v2/pokemon`;
 let evolutionChains = [];
 let allPokemon = [];
 let countdown = 25;
+let currentNames = [];
 let startCount = 1;
 let offset = 0;
 const limit = 25;
@@ -24,8 +23,7 @@ async function fetchPokemon() {
             //console.log(pokemon, " pokemon url: ", pokemon["url"]);
             let fetchedPokemon = await fetch(`${pokemon["url"]}`);
             let singlePokemon = await fetchedPokemon.json();
-            //allPokemon.push(singlePokemon);
-            console.log(singlePokemon)
+            //console.log(singlePokemon);
             allPokemon.push({
                 id: singlePokemon.id,
                 name: singlePokemon.name,
@@ -39,26 +37,44 @@ async function fetchPokemon() {
                 height: singlePokemon.height,
             });
         }
-        offset = offset + 25;
         //console.log("all pokemon: ", allPokemon);
     } catch (error) {
         console.error(error.message);
     }
-    pokemonCard();
+    pokemonCard(allPokemon);
 }
 
 async function lodePokemon() {
-    const url = `${baseUrl}&limit=${limit}`;
-    await fetchPokemon(url);
+    offset = offset + 25;
+    await fetchPokemon();
+    //const url = `${baseUrl}&limit=${limit}`;
+    //await fetchPokemon(url);
 }
 
-// function loaderScreen() {
-//     const loaderContainer = document.querySelector('.loader-container');
-//     window.addEventListener('load', () => {
-//         if (loaderContainer) {
-//             loaderContainer.style.display = 'none';
-//         } else {
-//             console.error('Element with class .loader-container not found.');
-//         }
-//     });
-// }
+function renderNames() {
+    for (let i = 0; i < currentNames.length; i++) {
+        document.getElementById(
+            "search-pokemon"
+        ).innerHTML += `${currentNames[i]}`;
+    }
+}
+
+function filterPokemonName(filter) {
+    currentNames = allPokemon.filter((singlePokemon) =>
+        singlePokemon.name.includes(filter)
+    );
+}
+
+async function filterPokemon() {
+    let input = document.getElementById("search-pokemon").value.toLowerCase().trim();
+    if (input.length < 2) {
+        return;
+    }
+    if(input.length > 2){
+        currentNames = allPokemon.filter((singlePokemon) => singlePokemon.name.includes(input));
+        console.log(currentNames)
+        pokemonCard(currentNames);
+    } else {
+        pokemonCard(allPokemon);
+    }
+}
