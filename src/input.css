@@ -3,6 +3,7 @@
 .mahir-card {
     @apply cursor-pointer mb-3 flex flex-col items-center  border  rounded-lg shadow md:flex-row md:max-w-xl;
 }
+
 @tailwind utilities;
 
 @layer base {
@@ -29,6 +30,13 @@
     body::-webkit-scrollbar-thumb {
         background: var(--sb-thumb-color);
         border-radius: 3px;
+    }
+
+    .container-fixed {
+        max-width: 1920px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center
     }
 
     h1,
@@ -59,10 +67,10 @@
         @apply flex text-center text-footerText pb-2;
     }
 
-    /* .max-width-header,
+    .max-width-header,
     .max-width-footer {
         @apply max-w-[1920px] flex justify-center items-center;
-    } */
+    }
 
     .contact,
     .impressum,
@@ -77,4 +85,4 @@
     a {
         @apply no-underline;
     }
-};
+}

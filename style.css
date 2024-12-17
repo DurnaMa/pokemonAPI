@@ -1,3 +1,8 @@
 .d-none {
     display: none;
 }
+
+.logo {
+    width: 350px;
+    height: 120px;
+}

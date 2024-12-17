@@ -1,16 +1,22 @@
 <header class="flex content-between p-6">
-    <div class="flex content-center items-center flex-row gap-6">
+    <div class="flex content-center items-center gap-6 flex-col">
         <div>
-            <a href="index.html"><img class="h-14 " src="assets/logo/pokedex.png" alt="pokedex"/></a>
+            <a href="index.html"
+                ><img class="logo" src="assets/logo/pokedex.png" alt="pokedex"
+            /></a>
         </div>
         <div class="">
             <a href="index.html"><h1 class="text-3xl"></h1></a>
         </div>
 
-        <input oninput="filterPokemon()" id="search-pokemon" type="search">
-        <!-- <nav>
-            <a href="index.html">Start</a>
-            <a href="impressum.html">Impressum</a>
-        </nav> -->
+        <div class="w-full max-w-sm min-w-[200px]">
+            <div class="relative flex items-center">
+
+                <input oninput="filterPokemon()" id="search-pokemon" type="search"
+                    class="w-full bg-transparent placeholder:text-slate-100 text-slate-100 text-sm border border-slate-200 rounded-md pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-100 hover:border-slate-300 shadow-sm focus:shadow"
+                    placeholder="Pokemon..."
+                />
+            </div>
+        </div>
     </div>
 </header>

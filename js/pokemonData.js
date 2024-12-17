@@ -13,17 +13,14 @@ async function fetchPokemon() {
             `https://pokeapi.co/api/v2/pokemon?limit=25&offset=${offset}`
         );
         let responseAsJson = await response.json();
-        //console.log("response json: ", responseAsJson);
         for (
             let pokeIndex = 0;
             pokeIndex < responseAsJson.results.length;
             pokeIndex++
         ) {
-            let pokemon = responseAsJson["results"][pokeIndex];
-            //console.log(pokemon, " pokemon url: ", pokemon["url"]);
+            let pokemon = responseAsJson["results"][pokeIndex];   
             let fetchedPokemon = await fetch(`${pokemon["url"]}`);
             let singlePokemon = await fetchedPokemon.json();
-            //console.log(singlePokemon);
             allPokemon.push({
                 id: singlePokemon.id,
                 name: singlePokemon.name,
@@ -37,7 +34,6 @@ async function fetchPokemon() {
                 height: singlePokemon.height,
             });
         }
-        //console.log("all pokemon: ", allPokemon);
     } catch (error) {
         console.error(error.message);
     }
@@ -47,8 +43,6 @@ async function fetchPokemon() {
 async function lodePokemon() {
     offset = offset + 25;
     await fetchPokemon();
-    //const url = `${baseUrl}&limit=${limit}`;
-    //await fetchPokemon(url);
 }
 
 function renderNames() {
@@ -72,7 +66,6 @@ async function filterPokemon() {
     }
     if(input.length > 2){
         currentNames = allPokemon.filter((singlePokemon) => singlePokemon.name.includes(input));
-        console.log(currentNames)
         pokemonCard(currentNames);
     } else {
         pokemonCard(allPokemon);
