@@ -6,7 +6,8 @@ module.exports = {
         "./templates/**/*.html",
         "./index.html",
         "./script.js",
-        "./js/include-html.js"
+        "./js/include-html.js",
+        "./js/templates.js"
     ],
     safelist: [
         'bg-fire',
@@ -22,7 +23,12 @@ module.exports = {
         'bg-psychic',
         'bg-flying',
         'bg-fighting',
-        'bg-normal'
+        'bg-normal',
+        'bg-ghost',
+        'bg-ice',
+        'bg-dark',
+        'bg-steel',
+
     ],    
     theme: {
         extend: {
@@ -41,6 +47,10 @@ module.exports = {
                 flying: '#F5F5F5',
                 fighting: '#E6E0D4',
                 normal: '#F5F5F5',
+                ghost: '#5F6DBC',
+                ice: '#75D0C1',
+                dark: '#5b5f6e',
+                steel: '#7a7f80',
                 "sb-track": "#9ca3af",
                 "sb-thumb": "#1f2937",
                 footerText: "rgb(24, 19, 19)",
@@ -56,6 +66,7 @@ module.exports = {
             },
         },
         screens: {
+            xs: "320px",
             sm: "480px",
             md: "768px",
             lg: "976px",

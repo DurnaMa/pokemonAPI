@@ -11,9 +11,10 @@
         />
         <link rel="stylesheet" href="style.css" />
         <link rel="stylesheet" href="./css/mein.css" />
-        <script src="./js/include-html.js"></script>
-        <script src="./script.js"></script>
-        <script src="./js/pokemonData.js"></script>
+        <script defer src="./js/include-html.js"></script>
+        <script defer src="./script.js"></script>
+        <script defer src="./js/pokemonData.js"></script>
+        <script defer src="./js/templates.js"></script>
     </head>
     <body class="bg-lime-500" onload="init()">
         <include-html src="./templates/header.html"></include-html>
@@ -37,6 +38,8 @@
                     Lode Pokemon
                 </button>
             </div>
+            <div id="snackbar">
+            </div>            
         </main>
 
         <include-html src="./templates/footer.html"></include-html>
