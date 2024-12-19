@@ -4,6 +4,9 @@
     @apply cursor-pointer mb-3 flex flex-col items-center  border  rounded-lg shadow md:flex-row md:max-w-xl;
 }
 
+.disabled-btn {
+    @apply bg-slate-600;
+}
 @tailwind utilities;
 
 @layer base {

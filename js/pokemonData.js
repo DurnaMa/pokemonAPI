@@ -44,10 +44,19 @@ async function fetchPokemon() {
 async function lodePokemon() {
     offset = offset + 25;
     await fetchPokemon();
+    submitPoll();
+}
+
+async function submitPoll(){
+    let button = document.getElementById("nextPokemon")
+    button.disabled = true;
+    //button.classList.add('disabled-btn')
+    setTimeout(async function(){button.disabled = false;},5000);
+    //button.classList.remove('disabled-btn')
 }
 
 function renderNames() {
-    for (let i = 0; i < currentNames.length; i++) {
+        for (let i = 0; i < currentNames.length; i++) {
         document.getElementById(
             "search-pokemon"
         ).innerHTML += `${currentNames[i]}`;

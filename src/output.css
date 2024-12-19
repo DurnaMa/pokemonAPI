@@ -859,6 +859,11 @@ a {
   }
 }
 
+.disabled-btn {
+  --tw-bg-opacity: 1;
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1));
+}
+
 .fixed {
   position: fixed;
 }
