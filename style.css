@@ -17,10 +17,6 @@
     to {bottom: 0; opacity: 0;}
 }
 
-/* .disabled-btn {
-    background-color: gray !important;
-} */
-
 button.disabled-btn:disabled{
     background-color: gray !important;
     cursor: not-allowed;
