@@ -61,19 +61,6 @@ function filterPokemonName(filter) {
 
 }
 
-// async function filterPokemon() {
-//     let input = document.getElementById("search-pokemon").value.toLowerCase().trim();
-//     if (input.length < 2) {
-//         return;
-//     }
-//     if(input.length > 2){
-//         currentNames = allPokemon.filter((singlePokemon) => singlePokemon.name.includes(input));
-//         getPokemonCard(currentNames);
-//     } else {
-//         getPokemonCard(allPokemon);
-//     }
-// }
-
 async function filterPokemon() {
     let input = document.getElementById("search-pokemon").value.toLowerCase().trim();
     let contentContainer = document.getElementById("search-pokemon"); // Ensure proper reference
