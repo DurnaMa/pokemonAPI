@@ -1,11 +1,10 @@
-const baseUrl = `https://pokeapi.co/api/v2`;
+const baseUrl = `https://pokeapi.co/api/v2/`;
 let evolutionChains = [];
 let allPokemon = [];
-let countdown = 25;
 let currentNames = [];
 let startCount = 1;
 let offset = 0;
-const limit = 25;
+const limit = 100000;
 
 
 async function fetchPokemonDetails(pokemon) {
@@ -28,7 +27,7 @@ async function fetchPokemonDetails(pokemon) {
 async function fetchPokemon() {
     try {
         let response = await fetch(
-            `https://pokeapi.co/api/v2/pokemon?${limit}&offset=${offset}`
+            `${baseUrl}pokemon?${limit}&offset=${offset}`
         );
         let responseAsJson = await response.json();
         let pokemonDetails = await Promise.all(
@@ -50,9 +49,7 @@ async function lodePokemon() {
 async function submitPoll(){
     let button = document.getElementById("nextPokemon")
     button.disabled = true;
-    //button.classList.add('disabled-btn')
     setTimeout(async function(){button.disabled = false;},5000);
-    //button.classList.remove('disabled-btn')
 }
 
 function renderNames() {
@@ -72,11 +69,11 @@ function filterPokemonName(filter) {
 
 async function filterPokemon() {
     let input = document.getElementById("search-pokemon").value.toLowerCase().trim();
-    let contentContainer = document.getElementById("search-pokemon"); // Ensure proper reference
-    if (input.length < 2) {
+    //let contentContainer = document.getElementById("search-pokemon"); // Ensure proper reference
+    if (input.length < 0) {
         return;
     }
-    if (input.length > 2) {
+    if (input.length > 0) {
         currentNames = allPokemon.filter((singlePokemon) => singlePokemon.name.includes(input));
         if (currentNames.length === 0) {
             showSnackbar("No Pokémon found");
