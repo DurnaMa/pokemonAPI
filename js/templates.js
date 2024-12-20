@@ -38,7 +38,7 @@ function getBigPokemonCard(pokemonIndex) {
                 </button>
 
                 <!-- Pokemon Card -->
-                <div class="flex flex-col w-full max-w-xs h-auto p-4 bg-white rounded-lg shadow-lg relative">
+                <div class="flex flex-col h-auto p-4 bg-white rounded-lg shadow-lg relative md:w-96 md:text-center lg:w-96 lg:text-center xl:w-96 xl:text-center">
                     <button onclick="closePokemonCard()" class="absolute top-2 right-2 w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
                         &times;
                     </button>
