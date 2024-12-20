@@ -33,11 +33,9 @@ function getBigPokemonCard(pokemonIndex) {
     document.getElementById("pokedexBigCard").innerHTML = /*html*/ `
         <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <div class="relative flex items-center justify-center">
-                <button onclick="nextCardL(${pokemonIndex})" class="block absolute top-1/2 left-[-50px] transform -translate-y-1/2 bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center">
+                <button onclick="nextCardL(${pokemonIndex})" class="absolute top-1/2 left-[-50px] transform -translate-y-1/2 bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center">
                     <img src="./assets/icons/back.png" alt="back" class="w-6 h-6">
                 </button>
-
-                <!-- Pokemon Card -->
                 <div class="flex flex-col h-auto p-4 bg-white rounded-lg shadow-lg relative md:w-96 md:text-center lg:w-96 lg:text-center xl:w-96 xl:text-center">
                     <button onclick="closePokemonCard()" class="absolute top-2 right-2 w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
                         &times;
@@ -53,7 +51,7 @@ function getBigPokemonCard(pokemonIndex) {
                         <h2 class="text-sm font-medium text-gray-700 mt-1">Ability: ${singlePokemon.ability}</h2>
                     </div>
                 </div>
-                <button onclick="nextCardR(${pokemonIndex})" class="block absolute top-1/2 right-[-50px] transform -translate-y-1/2 bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center">
+                <button onclick="nextCardR(${pokemonIndex})" class="absolute top-1/2 right-[-50px] transform -translate-y-1/2 bg-gray-300 rounded-full w-12 h-12 flex items-center justify-center">
                     <img src="./assets/icons/next.png" alt="next" class="w-6 h-6">
                 </button>
             </div>
