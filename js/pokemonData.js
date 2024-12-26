@@ -4,7 +4,7 @@ let allPokemon = [];
 let currentNames = [];
 let startCount = 1;
 let offset = 0;
-const limit = 100000;
+const limit = 25;
 
 
 async function fetchPokemonDetails(pokemon) {
@@ -26,13 +26,9 @@ async function fetchPokemonDetails(pokemon) {
 
 async function fetchPokemon() {
     try {
-        let response = await fetch(
-            `${baseUrl}pokemon?${limit}&offset=${offset}`
-        );
+        let response = await fetch(`${baseUrl}pokemon?${limit}&offset=${offset}`);
         let responseAsJson = await response.json();
-        let pokemonDetails = await Promise.all(
-            responseAsJson.results.map(fetchPokemonDetails)
-        );
+        let pokemonDetails = await Promise.all(responseAsJson.results.map(fetchPokemonDetails));
         allPokemon.push(...pokemonDetails);
     } catch (error) {
         console.error(error.message);
